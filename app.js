@@ -6,7 +6,7 @@ if (userName === null) {
     userName = "Stranger"
 }
 
-//highScores will store the user name as a key, and their lowest number of guesses as the value
+//highScores will store the user's name as a key, and their lowest number of guesses as the value
 let highScores = {};
 highScores[userName] = 0
 
