@@ -26,18 +26,18 @@ function play(){
                 alert(`That's right, ${userName}! You got it on the first try!`)
                 if (highScores[userName] > attemptCount || highScores[userName] === 0) {
                     highScores[userName] = attemptCount
-                    alert(`Your new High Score is ${highScores[userName]}`)
+                    alert(`Your new High Score is ${highScores[userName]} guesses`)
                 } else {
-                    alert(`Your High Score is ${highScores[userName]}`)
+                    alert(`Your High Score is ${highScores[userName]} guesses`)
                 }
                 break;
             } else {
                 alert(`That's right, ${userName}! It took you ${attemptCount} tries. \nYour answers were ${prevGuess.join(", ")}`)
                 if (highScores[userName] > attemptCount || highScores[userName] === 0) {
                     highScores[userName] = attemptCount
-                    alert(`Your new High Score is ${highScores[userName]}`)
+                    alert(`Your new High Score is ${highScores[userName]} guesses`)
                 } else {
-                    alert(`Your High Score is ${highScores[userName]}`)
+                    alert(`Your High Score is ${highScores[userName]} guesses`)
                 }
                 break;
             }
