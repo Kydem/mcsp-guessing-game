@@ -1,25 +1,37 @@
-let guess;
-let goal = Math.floor(Math.random() * 10) + 1
-let attemptCount = 0
-const prevGuess = []
+let userName = prompt("Please enter your name.")
+if (userName == null) {
+    userName = "Stranger"
+}
+
+let highScores = {};
 
 function play(){
+    let guess;
+    let attemptCount = 0
+    let prevGuess = []
+    let goal = Math.floor(Math.random() * 10) + 1
     while(true) {
-        guess = prompt("Guess a number between 1 and 10")
+        guess = prompt(`Ok ${userName}, guess a number between 1 and 10`)
         let numGuess = Number(guess)
         prevGuess.push(guess)
         if (guess === null) {
-            alert("Goodbye")
+            alert(`Goodbye ${userName}.`)
             break;
         }
 
         if (numGuess === goal) {
             attemptCount++
             if (attemptCount === 1) {
-                alert(`That's right! You got it on the first try!`)
+                alert(`That's right, ${userName}! You got it on the first try!`)
+                if (highScores[userName] < attemptCount) {
+                    highScores[userName] = attemptCount
+                }
                 break;
             } else {
-                alert(`That's right! It took you ${attemptCount} tries. \nYour previous answers were ${prevGuess.join(", ")}`)
+                alert(`That's right, ${userName}! It took you ${attemptCount} tries. \nYour answers were ${prevGuess.join(", ")}`)
+                if (highScores[userName] < attemptCount) {
+                    highScores[userName] = attemptCount
+                }
                 break;
             }
         } else if (numGuess > goal && numGuess <= 10) {
@@ -33,6 +45,14 @@ function play(){
             alert(`Attempt Number: ${attemptCount} \nThis is not a number between 1 and 100. Try again`);
         }
     }
+    playAgain = prompt(`Would you like to play again, ${userName}? \nType "yes" or "no".`)
+    // use .confirm instead of prompt if prompt doesnt work
+    if (playAgain.toLowerCase() === "yes") {
+        play()
+    } else {
+        alert(`Goodbye ${userName}.`)
+    }
+
 }
 
 play(); // This is your main function that runs when the page loads
