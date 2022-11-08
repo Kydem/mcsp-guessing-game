@@ -1,5 +1,5 @@
 let userName = prompt("Please enter your name.")
-if (userName == null) {
+if (userName === null) {
     userName = "Stranger"
 }
 
